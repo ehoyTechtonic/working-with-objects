@@ -39,29 +39,38 @@ document.getElementById("problem-3").innerHTML = reverseIt(forecast);
 //problem-4
 
 // place functions and supporting code here.  Uncomment line below and place answer the to right of = sign
+weatherArray1 = weatherObservations;
+console.log(weatherArray1);
 function makeItRainLists(arr) {
   var content = "<ul>";
   for (i=0; i<arr.length; i++) {
     content += "<li>";
-    content += weatherObservations[i].time;
+    content += arr[i].time;
     content += " ";
-    content += (weatherObservations[i].precip * 100) + "%";
+    content += (arr[i].precip * 100) + "%";
     content += "</li>";
   }
   content += "</ul>";
   return content;
 }
 
-document.getElementById("problem-4").innerHTML = makeItRainLists(weatherObservations);
+document.getElementById("problem-4").innerHTML = makeItRainLists(weatherArray1);
 
 
 //challenge-1
 
 // place functions and supporting code here.  Uncomment line below and place answer the to right of = sign
-weatherArray = weatherObservations.filter(weatherObservation => weatherObservation.precip < .5)
-document.getElementById("challenge-1").innerHTML = makeItRainLists(weatherArray)
-
+weatherArray = weatherObservations;
+// console.log(weatherArray);
+var filterArray = weatherObservations.filter(weatherObservation => weatherObservation.precip < 0.5)
+document.getElementById("challenge-1").innerHTML = makeItRainLists(filterArray)
+// console.log(filterArray);
 //challenge-2
 
 // place functions and supporting code here.  Uncomment line below and place answer the to right of = sign
-// document.getElementById("challenge-2").innerHTML =
+var weatherArray2 = weatherForecastItems.forecast.txt_forecast.forecastday;
+var mapArray = "<ul>";
+mapArray += weatherArray2.map(x => "<li>Here is " + x.title + "'s forecast. " + reverseIt(x.reversedForecastDesc) + "</li>");
+mapArray += "</ul>";
+document.getElementById("challenge-2").innerHTML = mapArray;
+// I wasn't sure how to get the commas out of the array, so they are showing up in the <ul>
